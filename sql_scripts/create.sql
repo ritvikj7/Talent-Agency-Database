@@ -158,3 +158,22 @@ CREATE TABLE Contracts2 (
     duration integer NOT NULL,
     PRIMARY KEY(pay_rate, cDate)
 );
+
+grant select on Agencies to public;
+grant select on Contracts1 to public;
+grant select on ContentCreators to public;
+grant select on MerchandiseSold1 to public;
+grant select on MerchandiseSold2 to public;
+grant select on Youtubers to public;
+grant select on Offer to public;
+grant select on Platform to public;
+grant select on ContentCreated_FoundOn to public;
+grant select on Musician to public;
+grant select on Photographers to public;
+grant select on ManagersAssigned to public;
+grant select on Event1 to public;
+grant select on Event2 to public;
+grant select on Host to public;
+grant select on Sponsors to public;
+grant select on Negotiate to public;
+grant select on Contracts2 to public;
