@@ -29,3 +29,6 @@ The application will primarily focus on the following aspects of the Talent Agen
 4. **Sponsors and Partnerships:**
    - The system will maintain a list of sponsors and partners associated with the agency.
    - Sponsors can be linked to specific content creators or campaigns.
+
+## ER (Entity-Relationship Diagram)
+To modify the ER diagram, you could download the "ER Diagram.drawio" and open that file via "https://app.diagrams.net/" or you can simply view the file "Er Diagram.jpg"
