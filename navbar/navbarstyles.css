@@ -7,7 +7,7 @@
 }
 
 body{
-    font-family: montserrat;
+    font-family: 'Julius Sans One', 'Times New Roman';
 }
 
 nav{
@@ -46,16 +46,8 @@ a.items:hover{
     transition: .5s;
 }
 
-.checkbtn{
-    font-size: 30px;
-    color: white;
-    float: right;
-    line-height: 80px;
-    margin-right: 40px; 
-}
-
 .title{
-    font-family: montserrat;
+    font-family: 'Julius Sans One', 'Times New Roman';
     text-transform: uppercase;
     text-align: center;
     position: absolute;
@@ -63,4 +55,3 @@ a.items:hover{
     left: 50%;
     transform: translateX(-50%);
 }
-
