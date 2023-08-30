@@ -213,14 +213,6 @@
 
         <hr />
 
-
-
-
-
-
-
-
-
         <h2>Show All Tables</h2>
         <form method="GET" action="main.php"> <!--refresh page when submitted-->
             <input type="hidden" id="showAllTablesRequest" name="showAllTablesRequest">
@@ -551,7 +543,6 @@
             OCICommit($db_conn);
         }
 
-        
 
         // Find the agencies who can give all types of contracts
         function handleDivisionRequest() { // TODO

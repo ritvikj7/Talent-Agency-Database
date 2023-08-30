@@ -1,9 +1,65 @@
+/* agencies.css */
 .agencies {
     font-family: 'Julius Sans One', 'Times New Roman';
     text-transform: uppercase;
     text-align: center;
     position: absolute;
-    margin-top: 20px;
+    margin-top: 30px;
     left: 50%;
     transform: translateX(-50%);
+}
+
+.sponsors {
+    font-family: 'Julius Sans One', 'Times New Roman';
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    margin-top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.agenciesTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    margin-top: 80px;
+}
+
+.sponsorsTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    margin-top: 90px;
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.button {
+    display: block;
+    margin: auto;
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.button:hover {
+    background-color: #2980b9;
 }

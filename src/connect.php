@@ -127,6 +127,8 @@
         if (connectToDB()) {
             if (array_key_exists('showAllTablesRequest', $_GET)) {
                 handleShowAllTablesRequest();
+            } else if (array_key_exists('showSponsorsRequest', $_GET)) {
+                handleShowSponsorRequest();
             } else if (array_key_exists('aggregationWithGroupByQueryRequest', $_GET)) {
                 handleAggregationWithGroupByRequest();
             } else if (array_key_exists('projectionQueryRequest', $_GET)) {
@@ -145,7 +147,7 @@
 
     if (isset($_POST['updateSubmit']) || isset($_POST['insertSubmit']) || isset($_POST['deleteSubmit']) || isset($_POST['selectSubmit']) || isset($_POST['joinSubmit'])) {
         handlePOSTRequest();
-    } else if (isset($_GET['showAllTablesRequest']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
+    } else if (isset($_GET['showAllTablesSubmit']) || isset($_GET['showSponsorsSubmit']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
         handleGETRequest();
     }
 ?>

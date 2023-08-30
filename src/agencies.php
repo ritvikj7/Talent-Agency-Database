@@ -11,15 +11,9 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div> 
-    <u>
-        <h1 class="agencies">Agencies</h1>
-    </u>
+    
+    <h1 class="agencies">Agencies</h1>
 
-    <h2>Show All Tables</h2>
-    <form method="GET" action="agencies.php"> <!--refresh page when submitted-->
-        <input type="hidden" id="showAllTablesRequest" name="showAllTablesRequest">
-        <input type="submit" value="Show" name="showAllTablesSubmit"></p>
-    </form>
 
     <script src="navbar.js"></script>
     <script>
@@ -29,82 +23,49 @@
     <?php
         include "connect.php";
 
-        function printResultAll() {
-            // Print ContentCreators Table
-            $cc_table = executePlainSQL("SELECT * FROM ContentCreators");
-            echo "<br>ContentCreators Table:<br>";
-            echo "<table>";
-            echo "<tr><th>Contact</th><th>Status</th><th>Name</th><th>AgencyName</th><th>AgencyFounder</th><th>ContractID</th><th>Handle</th></tr>";
-            while ($row = OCI_Fetch_Array($cc_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td><td>" . $row[6] . "</td><tr>"; //or just use "echo $row[0]"
-            }
-            echo "</table>";
-
-            // Print Youtubers Table
-            $cc_table = executePlainSQL("SELECT * FROM Youtubers");
-            echo "<br>Youtubers Table:<br>";
-            echo "<table>";
-            echo "<tr><th>Contact</th><th>Subscriber_count</th></tr>";
-            while ($row = OCI_Fetch_Array($cc_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><tr>"; //or just use "echo $row[0]"
-            }
-            echo "</table>";
-
+        function printResultAgencies() {
             // Print Agencies Table
             $agencies_table = executePlainSQL("SELECT * FROM Agencies");
-            echo "<br>Agencies Table:<br>";
-            echo "<table>";
-            echo "<tr><th>Name</th><th>Founder</th><th>EmployeeCount</th></tr>";
+            echo "<table class=agenciesTable>";
+            echo "<tr><th>Name:</th><th>Founder:</th><th>Employee Count:</th></tr>";
             while ($row = OCI_Fetch_Array($agencies_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><tr>";
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
             }
+            
             echo "</table>";
+        }
 
-            // Print Contracts1 Table
-            $contracts1_table = executePlainSQL("SELECT * FROM Contracts1");
-            echo "<br>Contracts1 Table:<br>";
-            echo "<table>";
-            echo "<tr><th>ID</th><th>Date</th><th>Pay</th></tr>";
-            while ($row = OCI_Fetch_Array($contracts1_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><tr>";
-            }
-            echo "</table>";
+        function printResultSponsors() {
+            printResultAgencies();
 
-            // Print Offer Table
-            $contracts1_table = executePlainSQL("SELECT * FROM Offer");
-            echo "<br>Offer Table:<br>";
-            echo "<table>";
-            echo "<tr><th>agency_name</th><th>agency_founder</th><th>contracts_id</th></tr>";
-            while ($row = OCI_Fetch_Array($contracts1_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><tr>";
+            // Print Agencies Table
+            $sponsors_table = executePlainSQL("SELECT * FROM Sponsors");
+            echo "<h1 class=sponsors>Sponsors</h1>";
+            echo "<table class=sponsorsTable>";
+            echo "<tr><th>Sponsor Name:</th><th>Company Name:</th><th>Service:</th></tr>";
+            while ($row = OCI_Fetch_Array($sponsors_table, OCI_BOTH)) {
+                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
             }
-            echo "</table>";
-
-            // Print MerchandiseSold1 Table
-            $ms1_table = executePlainSQL("SELECT * FROM MerchandiseSold1");
-            echo "<br>MerchandiseSold1 Table:<br>";
-            echo "<table>";
-            echo "<tr><th>Item#</th><th>Type</th><th>Manufacturer</th><th>ContentCreatorContact</th></tr>";
-            while ($row = OCI_Fetch_Array($ms1_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><tr>";
-            }
-            echo "</table>";
-
-            // Print MerchandiseSold2 Table
-            $ms1_table = executePlainSQL("SELECT * FROM MerchandiseSold2");
-            echo "<br>MerchandiseSold2 Table:<br>";
-            echo "<table>";
-            echo "<tr><th>mType</th><th>Manufacturer</th><th>Manufacturer</th><th>price</th></tr>";
-            while ($row = OCI_Fetch_Array($ms1_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><tr>";
-            }
+            
             echo "</table>";
         }
 
         function handleShowAllTablesRequest() {
             global $db_conn;
-            printResultAll();
+            printResultAgencies();
+        }
+
+        function handleShowSponsorRequest(){
+            global $db_conn;
+            printResultSponsors();
         }
     ?>
+
+    <form method="GET" action="agencies.php"> <!--refresh page when submitted-->
+        <input type="hidden" id="showSponsorsRequest" name="showSponsorsRequest">
+        <input type="submit" class="button" value="Show Sponsors" name="showSponsorsSubmit"></p>
+    </form>
+
+
 </body>
 </html>
