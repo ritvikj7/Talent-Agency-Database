@@ -1,0 +1,69 @@
+.merchandise {
+    font-family: 'Julius Sans One', 'Times New Roman';
+    text-transform: uppercase;
+    text-align: center;
+    position: absolute;
+    margin-top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+
+/* .merchTable {
+    border-collapse: collapse;
+    width: 80%;
+    margin: auto;
+    margin-top: 150px;
+} */
+
+.merchTable {
+    border-collapse: collapse;
+    width: 80%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 130px; /* Increase the margin to create space for the select menu */
+}
+
+th, td {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+    background-color: #f2f2f2;
+}
+
+/* Style for the select element */
+#selectCreators {
+    width: 80%;
+    padding: 10px;
+    font-size: 16px;
+    border: 3px solid #ccc;
+    border-radius: 2px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 70px; /* Adjust this margin as needed */
+    position: absolute; /* Position relative to its parent (the body) */
+    background-color: #f2f2f2; /* Background color for the dropdown */
+}
+
+/* Style for the option elements */
+#selectCreators option {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f2f2f2;
+    border-bottom: 1px solid #ccc; /* Add a border between options */
+}
+
+/* Style for the select element when focused */
+#selectCreators:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}

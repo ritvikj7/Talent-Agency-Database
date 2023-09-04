@@ -75,6 +75,14 @@
                 <option value="Offer">Offer</option>
             </select><br /><br />
 
+
+
+
+
+
+
+
+            
             <label for="selectAttributes">Select Attribute(s):</label>
             <select id="selectAttributes" name="selectAttributes[]" multiple>
                 <option value="content_creator_contact">Content Creator Contact</option>
@@ -164,7 +172,7 @@
         <h2>Join ContentCreators With MerchandiseSold1</h2>
         <p>To find all products sold by a particular Content Creator</p>
 
-        <form method="POST" action="main.php"> <!--refresh page when submitted-->
+        <form method="GET" action="main.php"> <!--refresh page when submitted-->
             <input type="hidden" id="joinQueryRequest" name="joinQueryRequest">
             Content Creator Contact: <input type="text" name="ccid"> <br /><br />
 
@@ -299,12 +307,6 @@
             echo "</table>";
         }
 
-
-
-
-
-
-        
 
         function handleUpdateRequest() {
             global $db_conn;
@@ -466,7 +468,7 @@
         function handleJoinRequest() {
             global $db_conn;
         
-            $contact = $_POST['ccid'];
+            $contact = $_GET['ccid'];
 
             $result = executePlainSQL(
                 "SELECT cc.content_creator_contact, cc.content_creator_name, m.itemNumber, m.mType, m.manufacturer

@@ -230,7 +230,7 @@ INSERT INTO MerchandiseSold1 VALUES (6, 'software', 'Nintendo', 2548);
 
 INSERT INTO MerchandiseSold2 VALUES ('shirt', 'gap', 15);
 INSERT INTO MerchandiseSold2 VALUES ('energy drink', 'Kool-Aid', 7);
-INSERT INTO MerchandiseSold2 VALUES ('skin care product', 'Neutrogena', 40);
+INSERT INTO MerchandiseSold2 VALUES ('skin care prod', 'Neutrogena', 40);
 INSERT INTO MerchandiseSold2 VALUES ('audioBook', 'Scholastic', 12);
 INSERT INTO MerchandiseSold2 VALUES ('game', 'Nintendo', 90);
 INSERT INTO MerchandiseSold2 VALUES ('software', 'Nintendo', 45);

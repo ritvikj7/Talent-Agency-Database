@@ -78,6 +78,7 @@
 
         $json = file_get_contents("oracle.json");
         $json_data = json_decode($json,true);
+
         // Your username is ora_(CWL_ID) and the password is a(student number). For example,
         // ora_platypus is the username and a12345678 is the password.
         $db_conn = OCILogon($json_data["oracle_username"], $json_data["oracle_password"], "dbhost.students.cs.ubc.ca:1522/stu");
@@ -113,9 +114,7 @@
                 handleDeleteRequest();
             } else if (array_key_exists('selectQueryRequest', $_POST)) {
                 handleSelectRequest();
-            } else if (array_key_exists('joinQueryRequest', $_POST)) {
-                handleJoinRequest();
-            }
+            } 
 
             disconnectFromDB();
         }
@@ -139,15 +138,17 @@
                 handleNestedAggregationWithGroupByRequest();
             } else if (array_key_exists('divisionQueryRequest', $_GET)) {
                 handleDivisionRequest();
+            } else if (array_key_exists('joinQueryRequest', $_GET)) {
+                handleJoinRequest();
             }
 
             disconnectFromDB();
         }
     }
 
-    if (isset($_POST['updateSubmit']) || isset($_POST['insertSubmit']) || isset($_POST['deleteSubmit']) || isset($_POST['selectSubmit']) || isset($_POST['joinSubmit'])) {
+    if (isset($_POST['updateSubmit']) || isset($_POST['insertSubmit']) || isset($_POST['deleteSubmit']) || isset($_POST['selectSubmit'])) {
         handlePOSTRequest();
-    } else if (isset($_GET['showAllTablesSubmit']) || isset($_GET['showSponsorsSubmit']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
+    } else if (isset($_GET['showAllTablesSubmit']) || isset($_GET['joinQueryRequest']) || isset($_GET['showSponsorsSubmit']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
         handleGETRequest();
     }
 ?>
