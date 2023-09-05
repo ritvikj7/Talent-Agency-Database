@@ -14,7 +14,6 @@
     
     <h1 class="agencies">Agencies</h1>
 
-
     <script src="navbar.js"></script>
     <script>
         loadNavbar();
@@ -35,36 +34,11 @@
             echo "</table>";
         }
 
-        function printResultSponsors() {
-            printResultAgencies();
-
-            // Print Agencies Table
-            $sponsors_table = executePlainSQL("SELECT * FROM Sponsors");
-            echo "<h1 class=sponsors>Sponsors</h1>";
-            echo "<table class=sponsorsTable>";
-            echo "<tr><th>Sponsor Name:</th><th>Company Name:</th><th>Service:</th></tr>";
-            while ($row = OCI_Fetch_Array($sponsors_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
-            }
-            
-            echo "</table>";
-        }
-
         function handleShowAllTablesRequest() {
             global $db_conn;
             printResultAgencies();
         }
-
-        function handleShowSponsorRequest(){
-            global $db_conn;
-            printResultSponsors();
-        }
     ?>
-
-    <form method="GET" action="agencies.php"> <!--refresh page when submitted-->
-        <input type="hidden" id="showSponsorsRequest" name="showSponsorsRequest">
-        <input type="submit" class="button" value="Show Sponsors" name="showSponsorsSubmit"></p>
-    </form>
 
 
 </body>

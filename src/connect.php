@@ -140,7 +140,9 @@
                 handleDivisionRequest();
             } else if (array_key_exists('joinQueryRequest', $_GET)) {
                 handleJoinRequest();
-            }
+            } else if (array_key_exists('selectContractsRequest', $_GET)) {
+                handleContractsRequest();
+            } 
 
             disconnectFromDB();
         }
@@ -148,7 +150,7 @@
 
     if (isset($_POST['updateSubmit']) || isset($_POST['insertSubmit']) || isset($_POST['deleteSubmit']) || isset($_POST['selectSubmit'])) {
         handlePOSTRequest();
-    } else if (isset($_GET['showAllTablesSubmit']) || isset($_GET['joinQueryRequest']) || isset($_GET['showSponsorsSubmit']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
+    } else if (isset($_GET['showAllTablesSubmit']) || isset($_GET['selectContractsRequest']) || isset($_GET['joinQueryRequest']) || isset($_GET['showSponsorsSubmit']) || isset($_GET['aggregationWithGroupBySubmit']) || isset($_GET['projectionSubmit']) || isset($_GET['aggregationWithHavingSubmit']) || isset($_GET['nestedAggregationWithGroupBySubmit']) || isset($_GET['divisionSubmit'])) {
         handleGETRequest();
     }
 ?>

@@ -40,8 +40,6 @@ CREATE TABLE Contracts1 (
     pay_rate integer NOT NULL
 );
 
-
-
 CREATE TABLE ContentCreators (
     content_creator_contact integer PRIMARY KEY, 
     cStatus char(10), 
@@ -77,14 +75,12 @@ CREATE TABLE MerchandiseSold1 (
         ON DELETE CASCADE    
 );
 
-
 CREATE TABLE MerchandiseSold2 (
     mType char(20), 
     manufacturer char(20),
     price integer NOT NULL,
     PRIMARY KEY (mType, manufacturer)
 );
-
 
 CREATE TABLE Youtubers (
     content_creator_contact integer PRIMARY KEY, 
@@ -93,7 +89,6 @@ CREATE TABLE Youtubers (
     ON DELETE CASCADE    
 );
 
-
 CREATE TABLE Musicians (
     content_creator_contact integer PRIMARY KEY, 
     instrument char(20) NOT NULL,
@@ -101,14 +96,12 @@ CREATE TABLE Musicians (
     ON DELETE CASCADE    
 );
 
-
 CREATE TABLE Photographers (
     content_creator_contact integer PRIMARY KEY, 
     camera char(20) NOT NULL,
     FOREIGN KEY (content_creator_contact) REFERENCES ContentCreators (content_creator_contact)
     ON DELETE CASCADE    
 );
-
 
 CREATE TABLE ManagersAssigned (
     manager_contact integer PRIMARY KEY, 
@@ -126,13 +119,11 @@ CREATE TABLE Event1 (
     PRIMARY KEY (event_name, eDate)
 );
 
-
 CREATE TABLE Event2 (
     event_name char(20), 
     event_type char(20) NOT NULL,
     PRIMARY KEY (event_name)
 );
-
 
 CREATE TABLE Host (
     agency_name char(50), 
@@ -161,7 +152,6 @@ CREATE TABLE Negotiate (
     FOREIGN KEY (agency_name, agency_founder) REFERENCES Agencies (agency_name, agency_founder),
     FOREIGN KEY (sponsors_name, sponsors_company) REFERENCES Sponsors (sponsors_name, company_name)
 );
-
 
 CREATE TABLE Offer (
     agency_name char(50), 
@@ -202,6 +192,12 @@ INSERT INTO Contracts1 VALUES (7, '2023-11-02', 87368);
 INSERT INTO Contracts1 VALUES (8, '2023-11-03', 61956);
 INSERT INTO Contracts1 VALUES (9, '2023-12-04', 196285);
 INSERT INTO Contracts1 VALUES (10, '2023-12-27', 94382);
+INSERT INTO Contracts1 VALUES (11, '2023-09-14', 80000);
+INSERT INTO Contracts1 VALUES (12, '2023-11-03', 100000);
+INSERT INTO Contracts1 VALUES (13, '2023-11-27', 60000);
+INSERT INTO Contracts1 VALUES (14, '2023-12-20', 50000);
+INSERT INTO Contracts1 VALUES (15, '2023-12-22', 75000);
+
 
 INSERT INTO ContentCreators VALUES (1870, 'active', 'Ben', 'CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 1, 'TotallyNotBen');
 INSERT INTO ContentCreators VALUES (6438, 'active', 'Jake', 'Integral Artists', 'Ben Silverman', 2, 'SpoonHalfFull');
@@ -305,7 +301,16 @@ INSERT INTO Offer VALUES ('JYP Entertainment', 'J.Y. Park', 3);
 INSERT INTO Offer VALUES ('INTERNATIONAL CREATIVE MANAGEMENT PARTNERS', 'Marvin Josephson',	4);
 INSERT INTO Offer VALUES ('PARADIGM TALENT AGENCY',	'Sam Gores', 5);
 
-
+INSERT INTO Contracts2 VALUES ('2023-08-09', 80000, 12);
+INSERT INTO Contracts2 VALUES ('2023-09-18', 100000, 1);
+INSERT INTO Contracts2 VALUES ('2023-10-05', 60000, 7);
+INSERT INTO Contracts2 VALUES ('2023-10-09', 50000, 9);
+INSERT INTO Contracts2 VALUES ('2023-10-27', 75000, 9);
+INSERT INTO Contracts2 VALUES ('2023-10-17', 91822, 2);
+INSERT INTO Contracts2 VALUES ('2023-11-02', 87368, 5);
+INSERT INTO Contracts2 VALUES ('2023-11-03', 61956, 8);
+INSERT INTO Contracts2 VALUES ('2023-12-04', 196285, 3);
+INSERT INTO Contracts2 VALUES ('2023-12-27', 94382, 4);
 INSERT INTO Contracts2 VALUES ('2023-09-14', 80000,	8);
 INSERT INTO Contracts2 VALUES ('2023-11-03', 100000, 10);
 INSERT INTO Contracts2 VALUES ('2023-11-27', 60000, 2);
@@ -321,7 +326,7 @@ grant select on Youtubers to public;
 grant select on Offer to public;
 grant select on Platform to public;
 grant select on ContentCreated_FoundOn to public;
-grant select on Musician to public;
+grant select on Musicians to public;
 grant select on Photographers to public;
 grant select on ManagersAssigned to public;
 grant select on Event1 to public;

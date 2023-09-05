@@ -30,69 +30,73 @@
     connectToDB(); // Establish the database connection
     ?>
 
-    <form method="GET" action="merch.php" id="merchForm">
-        <input type="hidden" id="joinQueryRequest" name="joinQueryRequest">
-            <?php
-            $contentCreatorsQuery = executePlainSQL("SELECT content_creator_contact, content_creator_name FROM ContentCreators");
+    <div class="filter-container">
+        <h1 class="text">Filter By Content Creator</h1>
+        <form method="GET" action="merch.php" id="merchForm">
+            <input type="hidden" id="joinQueryRequest" name="joinQueryRequest">
+                <?php
+                $contentCreatorsQuery = executePlainSQL("SELECT content_creator_contact, content_creator_name FROM ContentCreators");
+                echo "<select id='selectCreators' name='ccid' onchange='submitForm()'>";
+                    echo "<option value='' selected disabled>SELECT CREATOR</option>";
+                    echo "<option value='Default'>All Creators</option>";
+                    while ($row = OCI_Fetch_Array($contentCreatorsQuery, OCI_BOTH)) {
+                        echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
+                    }
+                echo "</select><br /><br />";
+                ?>
+        </form>
+    </div>
 
-            echo "<select id='selectCreators' name='ccid' onchange='submitForm()'>";
-                echo "<option value='' selected disabled>SELECT CREATOR</option>";
-                echo "<option value='Default'>All Creators</option>";
-                while ($row = OCI_Fetch_Array($contentCreatorsQuery, OCI_BOTH)) {
-                    echo "<option value='" . $row[0] . "'>" . $row[1] . "</option>";
-                }
-            echo "</select><br /><br />";
-            ?>
-    </form>
 
-
-    <?php
-        function printResultMerch() {
-            // Print MerchandiseSold Table
-            $ms_table = executePlainSQL(
-                "SELECT m1.itemNumber, c.content_creator_name, c.content_creator_contact, m1.mType, m1.manufacturer, m2.price
-                FROM MerchandiseSold1 m1, MerchandiseSold2 m2, ContentCreators c 
-                WHERE m1.mType = m2.mType and m1.manufacturer = m2.manufacturer and m1.content_creator_contact = c.content_creator_contact");
-            
-            echo "<table class=merchTable>";
-            echo "<tr><th>Item#</th><th>Creators Name</th><th>Creators Contact</th><th>Item Type</th><th>Manufacturer</th><th>Price</th></tr>";
-            while ($row = OCI_Fetch_Array($ms_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
-            }
-            echo "</table>";
-        }
-
-        
-        function handleShowAllTablesRequest() {
-            global $db_conn;
-            printResultMerch();
-        }
-
-        function handleJoinRequest() {
-            global $db_conn;
-        
-            $contact = $_GET['ccid'];
-
-            if($contact == 'Default'){
-                printResultMerch();
-            } else {
-                $result = executePlainSQL(
-                "SELECT m1.itemNumber, c.content_creator_name, c.content_creator_contact, m1.mType, m1.manufacturer, m2.price
-                FROM MerchandiseSold1 m1, MerchandiseSold2 m2, ContentCreators c
-                WHERE m1.mType = m2.mType and m1.manufacturer = m2.manufacturer and c.content_creator_contact = m1.content_creator_contact AND c.content_creator_contact=" . $contact . "");
-
+    <div class="contracts-container">
+        <?php
+            function printResultMerch() {
+                // Print MerchandiseSold Table
+                $ms_table = executePlainSQL(
+                    "SELECT m1.itemNumber, c.content_creator_name, c.content_creator_contact, m1.mType, m1.manufacturer, m2.price
+                    FROM MerchandiseSold1 m1, MerchandiseSold2 m2, ContentCreators c 
+                    WHERE m1.mType = m2.mType and m1.manufacturer = m2.manufacturer and m1.content_creator_contact = c.content_creator_contact");
+                
                 echo "<table class=merchTable>";
                 echo "<tr><th>Item#</th><th>Creators Name</th><th>Creators Contact</th><th>Item Type</th><th>Manufacturer</th><th>Price</th></tr>";
-                while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
+                while ($row = OCI_Fetch_Array($ms_table, OCI_BOTH)) {
+                    echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
                 }
                 echo "</table>";
-
             }
 
-            OCICommit($db_conn);
-        }
-    ?>
+            
+            function handleShowAllTablesRequest() {
+                global $db_conn;
+                printResultMerch();
+            }
+
+            function handleJoinRequest() {
+                global $db_conn;
+            
+                $contact = $_GET['ccid'];
+
+                if($contact == 'Default'){
+                    printResultMerch();
+                } else {
+                    $result = executePlainSQL(
+                    "SELECT m1.itemNumber, c.content_creator_name, c.content_creator_contact, m1.mType, m1.manufacturer, m2.price
+                    FROM MerchandiseSold1 m1, MerchandiseSold2 m2, ContentCreators c
+                    WHERE m1.mType = m2.mType and m1.manufacturer = m2.manufacturer and c.content_creator_contact = m1.content_creator_contact and c.content_creator_contact=" . $contact . "");
+
+                    echo "<table class=merchTable>";
+                    echo "<tr><th>Item#</th><th>Creators Name</th><th>Creators Contact</th><th>Item Type</th><th>Manufacturer</th><th>Price</th></tr>";
+                    while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+                    echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
+                    }
+                    echo "</table>";
+
+                }
+
+                OCICommit($db_conn);
+            }
+        ?>
+    </div>
 
 
 </body>
