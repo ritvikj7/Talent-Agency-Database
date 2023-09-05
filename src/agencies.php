@@ -28,7 +28,11 @@
             echo "<table class=agenciesTable>";
             echo "<tr><th>Name:</th><th>Founder:</th><th>Employee Count:</th></tr>";
             while ($row = OCI_Fetch_Array($agencies_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                echo "<tr>";
+                echo "<td class='row'>" . $row[0] . "</td>";
+                echo "<td class='row'>" . $row[1] . "</td>";
+                echo "<td class='row'>" . $row[2] . "</td>";
+                echo "</tr>";            
             }
             
             echo "</table>";
@@ -39,7 +43,5 @@
             printResultAgencies();
         }
     ?>
-
-
 </body>
 </html>

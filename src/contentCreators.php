@@ -8,6 +8,18 @@
     <link rel="stylesheet" href="navbarstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
     <link rel="stylesheet" href="contentCreators.css">
+
+    <script>
+        // Function to open the modal
+        function openModal() {
+            document.getElementById('myModal').style.display = 'block';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('myModal').style.display = 'none';
+        }
+    </script>
 </head>
 <body>
     <div id="navbar-placeholder"></div> 
@@ -62,9 +74,53 @@
         global $db_conn;
         printResultContentCreators();
     }
+
+
+    function handleInsertRequest() {
+        global $db_conn;
+
+        //Getting the values from user and insert data into the table
+        $tuple = array (
+            ":bind1" => $_POST['insContact'],
+            ":bind2" => $_POST['insStatus'],
+            ":bind3" => $_POST['insName'],
+            ":bind4" => $_POST['insAgencyName'],
+            ":bind5" => $_POST['insAgencyFounder'],
+            ":bind6" => $_POST['insContractID'],
+            ":bind7" => $_POST['insHandle']
+        );
+
+        $alltuples = array (
+            $tuple
+        );
+
+        executeBoundSQL("INSERT INTO ContentCreators VALUES (:bind1, :bind2, :bind3, :bind4, :bind5, :bind6, :bind7)", $alltuples);
+
+        handleShowAllTablesRequest();
+
+        OCICommit($db_conn);
+    }
     ?>
 
 
-    
+    <button class="button2" onclick="openModal()">Add Creators</button>
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <form method="POST" action="contentCreators.php"> <!--refresh page when submitted-->
+                <input type="hidden" id="insertQueryRequest" name="insertQueryRequest">
+                Name: <input type="text" name="insName"> <br /><br />
+                Handle: <input type="text" name="insHandle"> <br /><br />
+                Contact: <input type="text" name="insContact"> <br /><br />
+                Status: <input type="text" name="insStatus"> <br /><br />
+                Agency Name: <input type="text" name="insAgencyName"> <br /><br />
+                Agency Founder: <input type="text" name="insAgencyFounder"> <br /><br />
+                ContractID: <input type="text" name="insContractID"> <br /><br />
+                <input type="submit" class='button2' value="Insert" name="insertSubmit"></p>
+            </form>
+        </div>
+    </div>
+
 </body>
 </html>

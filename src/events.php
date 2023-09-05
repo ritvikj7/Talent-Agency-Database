@@ -31,7 +31,12 @@
             echo "<table class=eventsTable>";
             echo "<tr><th>Event Name:</th><th>Type:</th><th>Date:</th><th>Participant Count:</th></tr>";
             while ($row = OCI_Fetch_Array($agencies_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td></tr>";
+                echo "<tr>";
+                echo "<td class='row'>" . $row[0] . "</td>";
+                echo "<td class='row'>" . $row[1] . "</td>";
+                echo "<td class='row'>" . $row[2] . "</td>";
+                echo "<td class='row'>" . $row[3] . "</td>";
+                echo "</tr>";            
             }
             
             echo "</table>";
@@ -46,7 +51,11 @@
             echo "<table class=sponsorsTable>";
             echo "<tr><th>Sponsor Name:</th><th>Company Name:</th><th>Service:</th></tr>";
             while ($row = OCI_Fetch_Array($sponsors_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td></tr>";
+                echo "<tr>";
+                echo "<td class='row'>" . $row[0] . "</td>";
+                echo "<td class='row'>" . $row[1] . "</td>";
+                echo "<td class='row'>" . $row[2] . "</td>";
+                echo "</tr>";           
             }
             
             echo "</table>";

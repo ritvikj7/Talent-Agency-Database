@@ -60,8 +60,14 @@
                 echo "<table class=merchTable>";
                 echo "<tr><th>Item#</th><th>Creators Name</th><th>Creators Contact</th><th>Item Type</th><th>Manufacturer</th><th>Price</th></tr>";
                 while ($row = OCI_Fetch_Array($ms_table, OCI_BOTH)) {
-                    echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
-                }
+                    echo "<tr>";
+                    echo "<td class='row'>" . $row[0] . "</td>";
+                    echo "<td class='row'>" . $row[1] . "</td>";
+                    echo "<td class='row'>" . $row[2] . "</td>";
+                    echo "<td class='row'>" . $row[3] . "</td>";
+                    echo "<td class='row'>" . $row[4] . "</td>";
+                    echo "<td class='row'>" . $row[5] . "</td>";
+                    echo "</tr>";                }
                 echo "</table>";
             }
 
@@ -87,7 +93,14 @@
                     echo "<table class=merchTable>";
                     echo "<tr><th>Item#</th><th>Creators Name</th><th>Creators Contact</th><th>Item Type</th><th>Manufacturer</th><th>Price</th></tr>";
                     while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                    echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td><td>" . $row[5] . "</td></tr>";
+                        echo "<tr>";
+                        echo "<td class='row'>" . $row[0] . "</td>";
+                        echo "<td class='row'>" . $row[1] . "</td>";
+                        echo "<td class='row'>" . $row[2] . "</td>";
+                        echo "<td class='row'>" . $row[3] . "</td>";
+                        echo "<td class='row'>" . $row[4] . "</td>";
+                        echo "<td class='row'>" . $row[5] . "</td>";
+                        echo "</tr>";
                     }
                     echo "</table>";
 

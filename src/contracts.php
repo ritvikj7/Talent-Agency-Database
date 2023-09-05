@@ -61,7 +61,12 @@
             echo "<table class='contractsTable'>";
             echo "<tr><th>Contract ID</th><th>Start Date</th><th>Duration (in Months)</th><th>Pay ($)</th></tr>";
             while ($row = OCI_Fetch_Array($contracts_table, OCI_BOTH)) {
-                echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td></tr>";
+                echo "<tr>";
+                echo "<td class='row'>" . $row[0] . "</td>";
+                echo "<td class='row'>" . $row[1] . "</td>";
+                echo "<td class='row'>" . $row[2] . "</td>";
+                echo "<td class='row'>" . $row[3] . "</td>";
+                echo "</tr>";            
             }
             echo "</table>";
         }
@@ -88,7 +93,13 @@
                 echo "<table class=contractsTable>";
                 echo "<tr><th>Contract ID</th><th>Start Date</th><th>Duration (in Months)</th><th>Pay ($)</th><th>Agency</th></tr>";
                 while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
-                    echo "<tr><td>" . $row[0] . "</td><td>" . $row[1] . "</td><td>" . $row[2] . "</td><td>" . $row[3] . "</td><td>" . $row[4] . "</td></tr>";
+                    echo "<tr>";
+                    echo "<td class='row'>" . $row[0] . "</td>";
+                    echo "<td class='row'>" . $row[1] . "</td>";
+                    echo "<td class='row'>" . $row[2] . "</td>";
+                    echo "<td class='row'>" . $row[3] . "</td>";
+                    echo "<td class='row'>" . $row[4] . "</td>";
+                    echo "</tr>";                 
                 }
                 echo "</table>";
             }
