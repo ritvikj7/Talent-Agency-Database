@@ -10,8 +10,9 @@
 
 .creatorsTable {
     border-collapse: collapse;
-    width: 80%;
+    width: 90%;
     margin: auto;
+    margin-right: 25px;
     margin-top: 80px;
 }
 

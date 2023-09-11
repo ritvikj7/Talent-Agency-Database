@@ -199,7 +199,7 @@ INSERT INTO Contracts1 VALUES (14, '2023-12-20', 50000);
 INSERT INTO Contracts1 VALUES (15, '2023-12-22', 75000);
 
 
-INSERT INTO ContentCreators VALUES (1870, 'active', 'Ben', 'CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 1, 'TotallyNotBen');
+INSERT INTO ContentCreators VALUES (1870, 'active', "Ben", 'CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 1, 'TotallyNotBen');
 INSERT INTO ContentCreators VALUES (6438, 'active', 'Jake', 'Integral Artists', 'Ben Silverman', 2, 'SpoonHalfFull');
 INSERT INTO ContentCreators VALUES (9051, 'suspended', 'Linus', 'JYP Entertainment', 'J.Y. Park', 3, 'TheRealGamer');
 INSERT INTO ContentCreators VALUES (8762, 'inactive', 'Jekyll', 'INTERNATIONAL CREATIVE MANAGEMENT PARTNERS', 'Marvin Josephson', 4, 'DaringReading301');
