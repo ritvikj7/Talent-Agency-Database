@@ -74,9 +74,7 @@
     function connectToDB() {
         global $db_conn;
 
-        // $db_conn = OCILogon("ora_ritvikj", "a72789472", "dbhost.students.cs.ubc.ca:1522/stu");
-
-        $json = file_get_contents("oracle.json");
+        $json = file_get_contents("/src/oracle.json");
         $json_data = json_decode($json,true);
 
         // Your username is ora_(CWL_ID) and the password is a(student number). For example,

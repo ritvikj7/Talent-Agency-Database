@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Talent Agency Database</title>
-    <link rel="stylesheet" href="navbarstyles.css">
+    <link rel="stylesheet" href="/src/navbar/navbarstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
     <link rel="stylesheet" href="contracts.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -53,7 +53,7 @@
 
     <h1 class="contracts">Contracts</h1>
 
-    <script src="navbar.js"></script>
+    <script src="/src/navbar/navbar.js"></script>
     <script>
         loadNavbar();
     </script>
