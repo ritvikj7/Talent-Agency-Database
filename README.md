@@ -6,7 +6,7 @@ The Content Creator Agency Information Management System is a web application de
 
 ## Quickstart
 
-In order to log into Oracle for database access, a oracle.json file needs to be added to ~/public_html directory. This oracle.json file needs key-value pairs "oracle_username": "ora_cwl" and "oracle_password": "a12345678" to work, which can be seen in main.php lines 218, 219, and 222
+In order to log into Oracle for database access, a oracle.json file needs to be added to ~/src. This oracle.json file needs key-value pairs "oracle_username": "ora_cwl" and "oracle_password": "a12345678" to work, which can be seen in connect.php lines 80, 81, and 82
 
 ## Project Scope
 
@@ -26,9 +26,9 @@ The application will primarily focus on the following aspects of the Talent Agen
    - Content creators can associate their merchandise with the application, including details like product name, description, and inventory status.
    - The agency can track merchandise sales and revenue generated from each product.
 
-4. **Sponsors and Partnerships:**
+4. **Events and Sponsors:**
    - The system will maintain a list of sponsors and partners associated with the agency.
-   - Sponsors can be linked to specific content creators or campaigns.
+   - Sponsors can be linked to specific content creators or campaigns/events.
 
 ## ER (Entity-Relationship Diagram)
 To modify the ER diagram, you could download the "ER Diagram.drawio" and open that file via "https://app.diagrams.net/" or you can simply view the file "Er Diagram.jpg"
