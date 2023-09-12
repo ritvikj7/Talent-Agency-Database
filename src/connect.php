@@ -143,7 +143,7 @@
             } else if (array_key_exists('selectContractsRequest', $_GET)) {
                 handleContractsRequest();
             } 
-
+            
             disconnectFromDB();
         }
     }

@@ -8,34 +8,11 @@
     <link rel="stylesheet" href="navbarstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
     <link rel="stylesheet" href="merch.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
-        function submitForm(id) {
-            document.getElementById(id).submit(); // Submit the form when an option is selected
+        function submitForm() {
+            document.getElementById("merchForm").submit(); // Submit the form when an option is selected
         }
-
-        function submitProjectionForm() {
-        // Get all selected checkboxes
-        const checkboxes = document.querySelectorAll('input[name="selectAttributes[]"]:checked');
-
-        if (checkboxes.length === 0) {
-            // No checkboxes selected, do not submit
-            return;
-        }
-
-        // Create an array to store selected values
-        const selectedValues = [];
-        checkboxes.forEach((checkbox) => {
-            selectedValues.push(checkbox.value);
-        });
-
-        // Set the selected values as a comma-separated list in the hidden input field
-        document.getElementById("projectionQueryRequest").value = selectedValues.join(', ');
-
-        // Submit the form
-        document.getElementById("projectionForm").submit();
-    }
-
     </script>
 
 
@@ -70,13 +47,12 @@
                 <!-- <input type="submit" value="Select" name="projectionSubmit" class="button"></p> -->
             </div>
         </fieldset>
-        <input type="submit" value="Select" name="projectionSubmit" class="button"></p>
+        <button type="submit" name="projectionSubmit" class="button">
+            <i class="fas fa-eye"></i> Select
+        </button>
         <br />
     </form>
-
-   
-
-
+    
 
     <h1 class="merchandise">Merchandise Sold</h1>
 
@@ -92,11 +68,11 @@
 
     <div class="filter-container">
         <h1 class="text">Filter By Content Creator</h1>
-        <form method="GET" action="merch.php" id=2>
+        <form method="GET" action="merch.php" id="merchForm">
             <input type="hidden" id="joinQueryRequest" name="joinQueryRequest">
                 <?php
                 $contentCreatorsQuery = executePlainSQL("SELECT content_creator_contact, content_creator_name FROM ContentCreators");
-                echo "<select id='selectCreators' name='ccid' onchange='submitForm(2)'>";
+                echo "<select id='selectCreators' name='ccid' onchange='submitForm()'>";
                     echo "<option value='' selected disabled>SELECT CREATOR</option>";
                     echo "<option value='Default'>All Creators</option>";
                     while ($row = OCI_Fetch_Array($contentCreatorsQuery, OCI_BOTH)) {

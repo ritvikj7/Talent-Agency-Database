@@ -8,6 +8,9 @@
     <link rel="stylesheet" href="navbarstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
     <link rel="stylesheet" href="contracts.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    
+
 
     <script>
         function submitForm() {
@@ -17,6 +20,36 @@
 </head>
 <body>
     <div id="navbar-placeholder"></div> 
+
+
+    <form method="POST" action="contracts.php">
+        <input type="hidden" id="selectQueryRequest" name="selectQueryRequest">
+        
+        <fieldset class="find-contracts">
+            <legend>Find Contracts</legend>
+            <div class="checkbox-list">
+                <label>
+                    ID: <input type="text" name="cid" placeholder="Min. contract ID">
+                </label>
+                <label>
+                    Earliest Date: <input type="text" name="date" placeholder="YYYY-MM-DD">
+                </label>
+                <label>
+                    Duration: <input type="text" name="dura" placeholder="Min. Duration">
+                </label>
+                <label>
+                    Pay: <input type="text" name="pay" placeholder="Min. Pay">
+                </label>
+            </div>
+            <!-- <input type="submit" value="Find" name="selectSubmit" class="button"> -->
+            <button type="submit" name="selectSubmit" class="button">
+                <i class="fas fa-search"></i> Find
+            </button>
+        </fieldset>
+    </form>
+
+
+
 
     <h1 class="contracts">Contracts</h1>
 
@@ -106,8 +139,65 @@
 
             OCICommit($db_conn);
         }
+
+        // Need to modify this request
+        function handleSelectRequest() {
+            global $db_conn;
+        
+            // Initialize variables with default values of -1
+            $c_cid = -1;
+            $c_date = '1900-01-01';
+            $c_dura = -1;
+            $c_pay = -1;
+        
+            // Check if the POST variables are set and not empty, then update the variables
+            if (!empty($_POST['cid'])) {
+                $c_cid = $_POST['cid'];
+            }
+        
+            if (!empty($_POST['date'])) {
+                $c_date = $_POST['date'];
+            }
+        
+            if (!empty($_POST['dura'])) {
+                $c_dura = $_POST['dura'];
+            }
+        
+            if (!empty($_POST['pay'])) {
+                $c_pay = $_POST['pay'];
+            }
+        
+            // Build the SQL query with proper date comparison
+            $query =
+            "SELECT c.contracts_id, c.cDate, c2.duration, c2.pay_rate
+             FROM Contracts1 c, Contracts2 c2
+             WHERE c.cDate = c2.cDate and c.pay_rate = c2.pay_rate and c.contracts_id > $c_cid  and c2.duration > $c_dura and c2.pay_rate > $c_pay
+             and TO_DATE(c2.cDate, 'YYYY-MM-DD') > TO_DATE('$c_date', 'YYYY-MM-DD')";
+        
+        
+            $result = executePlainSQL($query);
+        
+            echo "<table class=contractsTable>";
+            $field_names = oci_num_fields($result);
+            echo "<tr>";
+            for ($i = 1; $i <= $field_names; $i++) {
+                $field_name = oci_field_name($result, $i);
+                echo "<th>$field_name</th>";
+            }
+            echo "</tr>";
+        
+            while ($row = oci_fetch_array($result, OCI_ASSOC + OCI_RETURN_NULLS)) {
+                echo "<tr>";
+                foreach ($row as $field_value) {
+                    echo "<td>$field_value</td>";
+                }
+                echo "</tr>";
+            }
+        
+            echo "</table>";
+            OCICommit($db_conn);
+        }
         ?>
     </div>
-    
 </body>
 </html>

@@ -297,9 +297,17 @@ INSERT INTO Offer VALUES ('CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 8);
 INSERT INTO Offer VALUES ('CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 9);
 INSERT INTO Offer VALUES ('CREATIVE ARTISTS AGENCY', 'Michael Ovitz', 10);
 INSERT INTO Offer VALUES ('Integral Artists', 'Ben Silverman', 2);
+INSERT INTO Offer VALUES ('Integral Artists', 'Ben Silverman', 11);
+INSERT INTO Offer VALUES ('Integral Artists', 'Ben Silverman', 12);
 INSERT INTO Offer VALUES ('JYP Entertainment', 'J.Y. Park', 3);
+INSERT INTO Offer VALUES ('JYP Entertainment', 'J.Y. Park', 12);
+INSERT INTO Offer VALUES ('JYP Entertainment', 'J.Y. Park', 14);
+INSERT INTO Offer VALUES ('JYP Entertainment', 'J.Y. Park', 15);
 INSERT INTO Offer VALUES ('INTERNATIONAL CREATIVE MANAGEMENT PARTNERS', 'Marvin Josephson',	4);
+INSERT INTO Offer VALUES ('INTERNATIONAL CREATIVE MANAGEMENT PARTNERS', 'Marvin Josephson',	13);
 INSERT INTO Offer VALUES ('PARADIGM TALENT AGENCY',	'Sam Gores', 5);
+INSERT INTO Offer VALUES ('PARADIGM TALENT AGENCY',	'Sam Gores', 13);
+
 
 INSERT INTO Contracts2 VALUES ('2023-08-09', 80000, 12);
 INSERT INTO Contracts2 VALUES ('2023-09-18', 100000, 1);
