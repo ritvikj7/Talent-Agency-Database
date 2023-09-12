@@ -22,7 +22,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 250px; /* Increase the margin to create space for the select menu */
+    margin-top: 320px; /* Increase the margin to create space for the select menu */
 }
 
 th, td {
@@ -147,4 +147,56 @@ legend {
 
 .button:hover {
     background-color: #2980b9;
+}
+
+.button2 {
+    padding: 7px 22px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    text-align: center;
+    margin: 5px;
+    border-radius: 4px;
+    position: absolute;
+    margin-left: -5;
+    text-transform: uppercase;
+    /* margin-top: 85px; */
+}
+
+.button2:hover {
+    background-color: #2980b9;
+}
+
+.dog input[type="text"] {
+    padding: 8px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-size: 16px;
+}
+
+.dog {
+    margin-top: 240px;
+    position: relative;
+    margin-left: 140px;
+    text-align: left;
+}
+
+
+/* Style for the button */
+.dog button.button2 {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    /* text-align: center; */
+    border-radius: 4px;
+    text-transform: uppercase;
+    margin-left: 7px;
+    margin-top: -0px;
 }

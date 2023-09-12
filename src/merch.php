@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
     <link rel="stylesheet" href="merch.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <script>
         function submitForm() {
             document.getElementById("merchForm").submit(); // Submit the form when an option is selected
@@ -52,7 +53,7 @@
         </button>
         <br />
     </form>
-    
+
 
     <h1 class="merchandise">Merchandise Sold</h1>
 
@@ -176,8 +177,41 @@
             
                 OCICommit($db_conn);
             }
+
+            function handleAggregationWithHaving() {
+                global $db_conn;
+                $minValue = $_GET['minValue'];
+            
+                $result = executePlainSQL(
+                    "SELECT m2.manufacturer, MAX(m2.price)
+                    FROM MerchandiseSold2 m2
+                    GROUP BY m2.manufacturer
+                    HAVING MAX(m2.price) > $minValue"
+                    );
+    
+                echo "<table class=merchTable>";
+                echo "<tr><th>Manufacturer</th><th>max merch price</th></tr>";
+                while ($row = OCI_Fetch_Array($result, OCI_BOTH)) {
+                    echo "<tr>";
+                    echo "<td class='row'>" . $row[0] . "</td>";
+                    echo "<td class='row'>" . $row[1] . "</td>";
+                    echo "</tr>"; 
+                }
+                echo "</table>";
+    
+                OCICommit($db_conn);
+            }
         ?>
     </div>
 
+    <div class=dog>
+        <form method="GET" action="merch.php"> 
+            <input type="hidden" id="aggregationWithHavingQueryRequest" name="aggregationWithHavingQueryRequest">
+            Most Expensive item by Manufacturer: <input type="text" name="minValue" placeholder="Min. Amount">
+            <button type="submit" name="aggregationWithHavingSubmit" class="button2">
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+    </div>
 </body>
 </html>

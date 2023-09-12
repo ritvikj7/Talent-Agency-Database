@@ -2,7 +2,7 @@
     font-family: 'Julius Sans One', 'Times New Roman';
     /* text-transform: uppercase; */
     text-align: center;
-    margin-top: 150px;
+    margin-top: 160px;
 }
 
 
@@ -12,7 +12,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: 105px; /* Increase the margin to create space for the select menu */
+    margin-top: 115px; /* Increase the margin to create space for the select menu */
     margin-bottom: 30px;
 }
 
@@ -119,11 +119,6 @@ tr:nth-child(odd) {
 
 }
 
-/* .checkbox-list input[type="text"] {
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-} */
 
 
 /* Style for the legend */
