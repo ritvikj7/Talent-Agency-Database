@@ -7,7 +7,10 @@
     <title>Talent Agency Database</title>
     <link rel="stylesheet" href="navbarstyles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link rel="stylesheet" href="events.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 </head>
 <body>
     <div id="navbar-placeholder"></div> 
@@ -74,7 +77,10 @@
 
     <form method="GET" action="events.php"> <!--refresh page when submitted-->
         <input type="hidden" id="showSponsorsRequest" name="showSponsorsRequest">
-        <input type="submit" class="button" value="Show Sponsors" name="showSponsorsSubmit"></p>
+        <!-- <input type="submit" class="button" value="Show Sponsors" name="showSponsorsSubmit"></p> -->
+        <button type="submit" name="showSponsorsSubmit" class="button">
+            <i class="fas fa-eye"></i> Show Sponsors
+        </button>
     </form>
 
 
