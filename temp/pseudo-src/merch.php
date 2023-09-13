@@ -204,7 +204,7 @@
         ?>
     </div>
 
-    <div class=dog>
+    <div class=amountPrompt>
         <form method="GET" action="merch.php"> 
             <input type="hidden" id="aggregationWithHavingQueryRequest" name="aggregationWithHavingQueryRequest">
             Most Expensive item by Manufacturer: <input type="text" name="minValue" placeholder="Min. Amount">
