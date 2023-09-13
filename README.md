@@ -2,13 +2,15 @@
 
 ![](https://github.com/ritvikj7/Talent-Agency-Database/blob/main/images/talentAgencyDatabase%20copy.gif)
 
+For Better Quality, click the gif!
+
 ## Project Description
 
 The Content Creator Agency Information Management System is a web application designed to hold and manage data related to content creators, products, and various relationships within a content creator agency. The system will provide a centralized platform for the agency to efficiently store and access information about their content creators, their work, and other relevant entities for future usage and decision-making.
 
 ## Quickstart
 
-In order to log into Oracle for database access, a oracle.json file needs to be added to ~/src. This oracle.json file needs key-value pairs "oracle_username": "ora_cwl" and "oracle_password": "a12345678" to work, which can be seen in connect.php lines 80, 81, and 82
+In order to log into Oracle for database access, an oracle.json file needs to be added to ~/src. This oracle.json file needs key-value pairs "oracle_username": "ora_cwl" and "oracle_password": "a12345678" to work, which can be seen in connect.php lines 80, 81, and 82
 
 ## Project Scope
 
