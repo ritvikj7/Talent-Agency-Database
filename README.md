@@ -1,6 +1,7 @@
 # Talent-Agency-Database
 
-file:///Users/ritvikjoshi/Desktop/talentAgencyDatabase.gif
+![Talent Agency Database (1)](https://github.com/ritvikj7/Talent-Agency-Database/assets/111620459/63162577-68b1-4831-8f18-f03a71dffd74)
+
 
 ## Project Description
 
