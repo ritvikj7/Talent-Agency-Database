@@ -1,7 +1,5 @@
 # Talent-Agency-Database
 
-![](https://github.com/ritvikj7/Talent-Agency-Database/blob/main/images/talentAgencyDatabase%20copy.gif)
-
 To check out the project in action view images and the "talentAgencyDatabase copy.gif" file! 
 
 ## Project Description
