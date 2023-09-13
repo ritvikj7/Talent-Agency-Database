@@ -1,5 +1,8 @@
 # Talent-Agency-Database
 
+![Talent Agency Database (1)](https://github.com/ritvikj7/Talent-Agency-Database/assets/111620459/63162577-68b1-4831-8f18-f03a71dffd74)
+
+
 ## Project Description
 
 The Content Creator Agency Information Management System is a web application designed to hold and manage data related to content creators, products, and various relationships within a content creator agency. The system will provide a centralized platform for the agency to efficiently store and access information about their content creators, their work, and other relevant entities for future usage and decision-making.
